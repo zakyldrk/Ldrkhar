@@ -75,7 +75,7 @@ async def start_command(client: Bot, message: Message):
                 ids = [int(int(argument[1]) / abs(client.db_channel.id))]
             except BaseException:
                 return
-        temp_msg = await message.reply("<code>Tunggu Sebentar...</code>")
+        temp_msg = await message.reply("<code>Waiting Video ...</code>")
         try:
             messages = await get_messages(client, ids)
         except BaseException:
@@ -154,7 +154,7 @@ async def not_joined(client: Bot, message: Message):
 @Bot.on_message(filters.command("users") & filters.private & filters.user(ADMINS))
 async def get_users(client: Bot, message: Message):
     msg = await client.send_message(
-        chat_id=message.chat.id, text="<code>Processing ...</code>"
+        chat_id=message.chat.id, text="<code>Memproses ...</code>"
     )
     users = await full_userbase()
     await msg.edit(f"{len(users)} <b>Pengguna menggunakan bot ini</b>")
